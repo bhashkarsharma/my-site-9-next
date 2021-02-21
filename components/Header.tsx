@@ -6,7 +6,11 @@ import Logo from './Logo';
 import { ComponentProps } from '../types/react';
 import NavList from './Nav';
 
-const Header: React.FC<ComponentProps> = ({ className }) => {
+interface HeaderProps extends ComponentProps {
+    title?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ title, className }) => {
     const [isClosed, setClosed] = useState<boolean>(false);
 
     const onMenuToggle = () => {
@@ -15,14 +19,14 @@ const Header: React.FC<ComponentProps> = ({ className }) => {
     return (
         <div
             className={classnames(
-                'flex m-4 py-4 px-6 flex-col sm:flex-row',
+                'flex m-4 py-2 px-4 flex-col sm:flex-row sm:items-center',
                 'rounded-xl shadow',
                 'bg-gray-600 text-white',
                 className
             )}>
-            <div className="flex-grow flex flex-row">
+            <div className="flex-1 flex flex-row">
                 <Link href="/">
-                    <Logo className="flex-grow" />
+                    <Logo title={title} className="flex-grow" />
                 </Link>
 
                 <div
@@ -43,7 +47,7 @@ const Header: React.FC<ComponentProps> = ({ className }) => {
             </div>
 
             <nav
-                className={classnames('flex-grow', {
+                className={classnames('flex-1', {
                     hidden: isClosed
                 })}>
                 <NavList />

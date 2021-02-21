@@ -12,10 +12,10 @@ const NavItem = React.forwardRef<HTMLLIElement, NavItemProps>(({ href, children 
         <li
             ref={ref}
             className={classnames(
-                'flex-1 py-2 sm:px-2 sm:py-0 sm:text-center sm:border-l-4',
+                'flex-1 py-2 sm:px-2 sm:text-center sm:border-l-0',
                 'transition cursor-pointer',
-                'text-gray-300 border-gray-300',
-                'group-hover:border-gray-500 hover:bg-gray-500 hover:text-white'
+                'text-gray-300 border-gray-400',
+                'group-hover:border-gray-600 hover:bg-gray-700 hover:text-white'
             )}>
             {children}
         </li>

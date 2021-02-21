@@ -1,25 +1,58 @@
+import { IconType } from 'react-icons';
 import { FaCopyright, FaLinkedin, FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa';
 
 import { SiGmail } from 'react-icons/si';
 
+interface SocialLinkProps {
+    Icon: IconType;
+    href: string;
+    color: string;
+    title: string;
+}
+
+const SocialLink: React.FC<SocialLinkProps> = ({ Icon, href, color, title }) => (
+    <a href={href} target="_blank" rel="noreferrer">
+        <Icon
+            title={title}
+            className="inline text-4xl m-2 opacity-60 hover:opacity-100"
+            color={color}
+        />
+    </a>
+);
+
 const Footer: React.FC = () => (
     <div className="bg-gray-600 p-10 text-center text-white">
         <div className="m-2">
-            <a href="https://linkedin.com/in/bhashkarsharma" target="_blank" rel="noreferrer">
-                <FaLinkedin title="LinkedIn" className="inline text-4xl m-2" color="#0a66c2" />
-            </a>
-            <a href="https://twitter.com/bhashkarsharma" target="_blank" rel="noreferrer">
-                <FaTwitter title="Twitter" className="inline text-4xl m-2" color="#1da1f2" />
-            </a>
-            <a href="https://instagram.com/bhashkarsharma" target="_blank" rel="noreferrer">
-                <FaInstagram title="Instagram" className="inline text-4xl m-2" color="#c32aa3" />
-            </a>
-            <a href="https://github.com/bhashkarsharma" target="_blank" rel="noreferrer">
-                <FaGithub title="Github" className="inline text-4xl m-2" color="#000" />
-            </a>
-            <a href="mailto:info@bhashkar.me" target="_blank" rel="noreferrer">
-                <SiGmail title="Mail" className="inline text-4xl m-2" color="#bb001b" />
-            </a>
+            <SocialLink
+                Icon={FaLinkedin}
+                href="https://linkedin.com/in/bhashkarsharma"
+                title="LinkedIn"
+                color="#0a66c2"
+            />
+            <SocialLink
+                Icon={FaTwitter}
+                href="https://twitter.com/bhashkarsharma"
+                title="Twitter"
+                color="#1da1f2"
+            />
+            <SocialLink
+                Icon={FaInstagram}
+                href="https://instagram.com/bhashkarsharma"
+                title="Instagram"
+                color="#c32aa3"
+            />
+            <SocialLink
+                Icon={FaGithub}
+                href="https://github.com/bhashkarsharma"
+                title="Github"
+                color="#000"
+            />
+            <SocialLink
+                Icon={SiGmail}
+                href="mailto:info@bhashkar.me"
+                title="Mail"
+                color="#bb001b"
+            />
         </div>
         <div className="m-2">
             <FaCopyright className="inline" /> Bhashkar Sharma
