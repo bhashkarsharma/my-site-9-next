@@ -26,6 +26,7 @@ NavItem.displayName = 'NavItem';
 
 const NavList = (): React.ReactElement => (
     <ul className="flex-col group sm:flex sm:flex-row">
+        <NavItem href="/">Home</NavItem>
         <NavItem href="/blog">Blog</NavItem>
         <NavItem href="/lab">Lab</NavItem>
         <NavItem href="/talks">Talks</NavItem>

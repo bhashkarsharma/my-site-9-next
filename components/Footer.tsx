@@ -6,15 +6,15 @@ import { SiGmail } from 'react-icons/si';
 interface SocialLinkProps {
     Icon: IconType;
     href: string;
-    color: string;
     title: string;
+    color: string;
 }
 
 const SocialLink: React.FC<SocialLinkProps> = ({ Icon, href, color, title }) => (
     <a href={href} target="_blank" rel="noreferrer">
         <Icon
-            title={title}
             className="inline text-4xl m-2 opacity-60 hover:opacity-100"
+            title={title}
             color={color}
         />
     </a>
