@@ -12,7 +12,7 @@ const Home: React.FC = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Background />
+            <Background className="topography" />
             <div className="h-screen relative flex flex-col">
                 <Header />
                 <Container />
