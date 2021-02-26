@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import PageHead from 'components/PageHead';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Container from '../components/Container';
@@ -6,11 +6,8 @@ import Background from '../components/Background';
 
 const Home: React.FC = () => {
     return (
-        <div className="">
-            <Head>
-                <title>Bhashkar Sharma</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+        <div>
+            <PageHead />
 
             <Background className="topography" />
             <div className="h-screen relative flex flex-col">

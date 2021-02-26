@@ -6,6 +6,7 @@ import Footer from 'components/Footer';
 import Container from 'components/Container';
 import Background from 'components/Background';
 import Link from 'next/link';
+import PageHead from 'components/PageHead';
 
 interface LabProps {
     pages: { title: string; url: string }[];
@@ -13,11 +14,8 @@ interface LabProps {
 
 const Lab: React.FC<LabProps> = ({ pages }) => {
     return (
-        <div className="">
-            <Head>
-                <title>Lab - Bhashkar Sharma</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+        <div>
+            <PageHead title="Lab" />
 
             <Background className="topography" />
             <div className="h-screen relative flex flex-col justify-between">
@@ -28,7 +26,7 @@ const Lab: React.FC<LabProps> = ({ pages }) => {
                             <div
                                 className={classnames(
                                     'flex justify-center items-center p-4 rounded-xl',
-                                    'text-6xl font-black',
+                                    'text-6xl sm:text-4xl font-black',
                                     'bg-transparent',
                                     'hover:bg-gray-500 hover:bg-opacity-50',
                                     'transition cursor-pointer'
