@@ -43,15 +43,15 @@ export const useJumbleOnMouseEvent = ({
     original,
     iterations,
     duration
-}: JumbleEffectProps): [string, (e: any) => void] => {
-    const [mousePos, setMousePos] = useState(0);
-    const onMouseEvent = (e: React.MouseEvent): void => setMousePos(e.pageX + e.pageY);
+}: JumbleEffectProps): [string, VoidFunction] => {
+    const [resetter, updateResetter] = useState(0);
+    const onMouseEvent = (): void => updateResetter(resetter + 1);
 
     const label = useJumbleEffect({
         original,
         iterations,
         duration,
-        resetter: mousePos
+        resetter
     });
 
     return [label, onMouseEvent];
