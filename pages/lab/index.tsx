@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import Head from 'next/head';
+
 import slugify from 'util/url';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
