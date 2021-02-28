@@ -7,52 +7,52 @@
     }
 }
 
-.box {
+.block {
     transform-style: preserve-3d;
-    height: var(--box-height);
-    width: var(--box-width);
+    height: var(--block-height);
+    width: var(--block-width);
     animation: spin 10s infinite linear;
 
     .side {
         &:nth-child(3n + 1) {
-            height: var(--box-width);
-            width: var(--box-height);
+            height: var(--block-width);
+            width: var(--block-height);
         }
 
         &:nth-child(3n + 2) {
-            height: var(--box-depth);
-            width: var(--box-width);
-            top: calc((var(--box-height) - var(--box-depth)) / 2);
+            height: var(--block-depth);
+            width: var(--block-width);
+            top: calc((var(--block-height) - var(--block-depth)) / 2);
         }
 
         &:nth-child(3n) {
-            height: var(--box-height);
-            width: var(--box-depth);
-            left: calc((var(--box-width) - var(--box-depth)) / 2);
+            height: var(--block-height);
+            width: var(--block-depth);
+            left: calc((var(--block-width) - var(--block-depth)) / 2);
         }
 
         &:nth-child(1) {
-            transform: rotateY(0deg) translateZ(calc(var(--box-depth) / 2));
+            transform: rotateY(0deg) translateZ(calc(var(--block-depth) / 2));
         }
 
         &:nth-child(2) {
-            transform: rotateX(90deg) translateZ(calc(var(--box-height) / 2));
+            transform: rotateX(90deg) translateZ(calc(var(--block-height) / 2));
         }
 
         &:nth-child(3) {
-            transform: rotateY(-90deg) translateZ(calc(var(--box-width) / 2));
+            transform: rotateY(-90deg) translateZ(calc(var(--block-width) / 2));
         }
 
         &:nth-child(4) {
-            transform: rotateY(180deg) translateZ(calc(var(--box-depth) / 2));
+            transform: rotateY(180deg) translateZ(calc(var(--block-depth) / 2));
         }
 
         &:nth-child(5) {
-            transform: rotateX(-90deg) translateZ(calc(var(--box-height) / 2));
+            transform: rotateX(-90deg) translateZ(calc(var(--block-height) / 2));
         }
 
         &:nth-child(6) {
-            transform: rotateY(90deg) translateZ(calc(var(--box-width) / 2));
+            transform: rotateY(90deg) translateZ(calc(var(--block-width) / 2));
         }
     }
 }

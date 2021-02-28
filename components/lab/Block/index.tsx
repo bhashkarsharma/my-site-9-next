@@ -2,11 +2,12 @@ import classnames from 'classnames';
 import styles from './index.module.scss';
 
 import { TAILWIND_COLORS, EXCLUDED_COLORS } from 'util/tailwind';
+import { useEffect, useRef, useState } from 'react';
 
 interface BlockCSS extends React.CSSProperties {
-    '--box-width': string;
-    '--box-height': string;
-    '--box-depth': string;
+    '--block-width': string;
+    '--block-height': string;
+    '--block-depth': string;
 }
 
 interface LabBlockProps {
@@ -15,19 +16,55 @@ interface LabBlockProps {
 }
 
 const LabBlock: React.FC<LabBlockProps> = ({ size, colorLevel }) => {
-    const boxStyles: BlockCSS = {
-        '--box-width': `${size}px`,
-        '--box-height': `${size}px`,
-        '--box-depth': `${size}px`
+    const isMouseCaptured = useRef<boolean>(false);
+
+    const [blockStyle, setblockStyle] = useState<BlockCSS>();
+
+    const [blockColors, setBlockColors] = useState<string[]>([]);
+
+    useEffect(() => {
+        setblockStyle({
+            '--block-width': `${size}px`,
+            '--block-height': `${size}px`,
+            '--block-depth': `${size}px`
+        });
+    }, [size]);
+
+    useEffect(() => {
+        setBlockColors(
+            TAILWIND_COLORS.filter((c) => !EXCLUDED_COLORS.includes(c)).map(
+                (i) => `bg-${i}-${colorLevel}`
+            )
+        );
+    }, [colorLevel]);
+
+    const handleMouseDown = () => (isMouseCaptured.current = true);
+
+    const handleMouseUp = () => (isMouseCaptured.current = false);
+
+    const handleMouseMove = (e) => {
+        if (!isMouseCaptured.current) return;
+
+        const mx = e.pageX / window.innerWidth;
+        const my = e.pageY / window.innerHeight;
+
+        const dx = 45 - 90 * mx;
+        const dy = 45 - 90 * my;
+
+        setblockStyle({
+            ...blockStyle,
+            animation: 'none',
+            transform: `translate(-50%, -50%) rotateY(${dx}deg) rotateX(${dy}deg)`
+        });
     };
 
-    const blockColors = TAILWIND_COLORS.filter((c) => !EXCLUDED_COLORS.includes(c)).map(
-        (i) => `bg-${i}-${colorLevel}`
-    );
-
     return (
-        <div className="relative w-full h-full">
-            <div className={classnames('absolute inset-2/4', styles.box)} style={boxStyles}>
+        <div
+            className="relative w-full h-full"
+            onMouseMove={handleMouseMove}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}>
+            <div className={classnames('absolute inset-2/4', styles.block)} style={blockStyle}>
                 {Array.from(new Array(6)).map((_, key) => (
                     <div
                         className={classnames(

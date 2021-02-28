@@ -11,8 +11,10 @@ const Block: React.FC = () => {
     const [size, setSize] = useState<number>(200);
     const [colorLevel, setColorLevel] = useState<number>(300);
 
-    const onSizeChange = (e) => setSize(e.target.value);
-    const onColorLevelChange = (e) => setColorLevel(e.target.value);
+    const handleSizeChange = (e) => setSize(e.target.value);
+
+    const handleColorLevelChange = (e) => setColorLevel(e.target.value);
+
     return (
         <div>
             <PageHead title="Block" />
@@ -28,7 +30,7 @@ const Block: React.FC = () => {
                         max="900"
                         step="50"
                         value={size}
-                        onChange={onSizeChange}
+                        onChange={handleSizeChange}
                     />
                     Color:
                     <input
@@ -37,7 +39,7 @@ const Block: React.FC = () => {
                         max="900"
                         step="100"
                         value={colorLevel}
-                        onChange={onColorLevelChange}
+                        onChange={handleColorLevelChange}
                     />
                     <LabBlock size={size} colorLevel={colorLevel} />
                 </Container>
