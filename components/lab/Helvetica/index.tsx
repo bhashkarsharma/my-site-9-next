@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import { useInterval } from 'hooks/time';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const ARRANGEMENT = [
     'ITLISASTIME',
@@ -101,12 +101,18 @@ const LabHelvetica = () => {
         ARRANGEMENT.map((i) => Array.from(i).map((_) => false))
     );
 
+    const tick = () => setBlinkState(getBlinkState(getTimeArrayForDate(new Date())));
+
     useInterval(() => {
-        setBlinkState(getBlinkState(getTimeArrayForDate(new Date())));
+        tick();
     }, 5000);
 
+    useEffect(() => {
+        tick();
+    }, []);
+
     return (
-        <div className="font-sans text-3xl grid text-center sm:px-32">
+        <div className="font-sans text-xl sm:text-3xl grid text-center sm:px-32">
             {ARRANGEMENT.map((row, rowKey) => (
                 <div className="grid grid-cols-11" key={rowKey}>
                     {Array.from(row).map((letter, letterKey) => (

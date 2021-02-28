@@ -19,8 +19,6 @@ const LabBlock: React.FC<LabBlockProps> = ({ size, colorLevel }) => {
 
     const [blockStyle, setblockStyle] = useState<BlockCSS>();
 
-    const [blockColors, setBlockColors] = useState<string[]>([]);
-
     useEffect(() => {
         setblockStyle({
             '--block-width': `${size}px`,
@@ -29,9 +27,7 @@ const LabBlock: React.FC<LabBlockProps> = ({ size, colorLevel }) => {
         });
     }, [size]);
 
-    useEffect(() => {
-        setBlockColors(USABLE_COLORS.map((i) => `bg-${i}-${colorLevel}`));
-    }, [colorLevel]);
+    const blockColors = USABLE_COLORS.map((i) => `bg-${i}-${colorLevel}`);
 
     const handleMouseDown = () => (isMouseCaptured.current = true);
 
