@@ -1,8 +1,8 @@
 import PageHead from 'components/PageHead';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Container from '../components/Container';
-import Background from '../components/Background';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import Container from 'components/Container';
+import Background from 'components/Background';
 
 const Home: React.FC = () => {
     return (
