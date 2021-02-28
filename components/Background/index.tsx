@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import { ComponentProps } from '../../types/react';
-import styles from './index.module.css';
+import styles from './index.module.scss';
 
 const Background: React.FC<ComponentProps> = ({ className }) => (
     <div className={classnames('fixed h-full w-full bg-gray-100', styles[className])} />
