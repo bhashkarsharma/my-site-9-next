@@ -1,9 +1,7 @@
 import classnames from 'classnames';
-import React, { useState } from 'react';
-import { useInterval } from 'hooks/time';
-import jumble from '../util/string';
-import { ComponentProps } from '../types/react';
 import { useJumbleEffect } from 'hooks/string';
+import React from 'react';
+import { ComponentProps } from '../types/react';
 
 interface LogoProps extends ComponentProps {
     title?: string;

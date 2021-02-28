@@ -1,8 +1,7 @@
 import classnames from 'classnames';
-import styles from './index.module.scss';
-
-import { TAILWIND_COLORS, EXCLUDED_COLORS } from 'util/tailwind';
 import { useEffect, useRef, useState } from 'react';
+import { USABLE_COLORS } from 'util/tailwind';
+import styles from './index.module.scss';
 
 interface BlockCSS extends React.CSSProperties {
     '--block-width': string;
@@ -31,11 +30,7 @@ const LabBlock: React.FC<LabBlockProps> = ({ size, colorLevel }) => {
     }, [size]);
 
     useEffect(() => {
-        setBlockColors(
-            TAILWIND_COLORS.filter((c) => !EXCLUDED_COLORS.includes(c)).map(
-                (i) => `bg-${i}-${colorLevel}`
-            )
-        );
+        setBlockColors(USABLE_COLORS.map((i) => `bg-${i}-${colorLevel}`));
     }, [colorLevel]);
 
     const handleMouseDown = () => (isMouseCaptured.current = true);
@@ -79,7 +74,5 @@ const LabBlock: React.FC<LabBlockProps> = ({ size, colorLevel }) => {
         </div>
     );
 };
-
-// rotation possible with swipe/drag
 
 export default LabBlock;
