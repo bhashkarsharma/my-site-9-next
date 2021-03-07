@@ -1,9 +1,7 @@
 module.exports = {
     purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-    darkMode: 'media', // or 'media' or 'class'
+    darkMode: false, // or 'media' or 'class'
     theme: {},
-    variants: {
-        extend: {}
-    },
+    variants: {},
     plugins: [require('@tailwindcss/typography'), require('tailwind-hamburgers')]
 };
