@@ -13,7 +13,7 @@ interface SocialLinkProps {
 const SocialLink: React.FC<SocialLinkProps> = ({ Icon, href, color, title }) => (
     <a href={href} target="_blank" rel="noreferrer">
         <Icon
-            className="inline text-4xl m-2 opacity-60 hover:opacity-100"
+            className="inline text-4xl m-2 opacity-100 hover:opacity-60"
             title={title}
             color={color}
         />
