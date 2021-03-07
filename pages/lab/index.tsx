@@ -49,7 +49,7 @@ const Lab: React.FC<LabProps> = ({ pages }) => {
 };
 
 export const getStaticProps = (): { props: LabProps } => {
-    const labPages = ['Block', 'Digilog', 'Helvetica', 'Particles', 'Set', 'Snake', 'Vinyl'];
+    const labPages = ['Block', 'Helvetica', 'Set']; //'Block', 'Digilog', 'Helvetica', 'Particles', 'Set', 'Snake', 'Vinyl'
     return {
         props: {
             pages: labPages.map((page) => ({ title: page, url: slugify(page) }))
