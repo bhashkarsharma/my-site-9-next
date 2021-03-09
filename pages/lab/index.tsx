@@ -26,7 +26,7 @@ const Lab: React.FC<LabProps> = ({ pages }) => {
                             <div
                                 className={classnames(
                                     'flex justify-center items-center p-4 rounded-xl',
-                                    'text-6xl sm:text-4xl font-black',
+                                    'text-2xl sm:text-4xl font-black',
                                     'bg-transparent',
                                     'hover:bg-gray-500 hover:bg-opacity-50',
                                     'transition cursor-pointer'
@@ -49,7 +49,7 @@ const Lab: React.FC<LabProps> = ({ pages }) => {
 };
 
 export const getStaticProps = (): { props: LabProps } => {
-    const labPages = ['Block', 'Helvetica', 'Set']; //'Block', 'Digilog', 'Helvetica', 'Particles', 'Set', 'Snake', 'Vinyl'
+    const labPages = ['Arc Reactor', 'Block', 'Fractal Tree', 'Helvetica', 'Set']; //'Block', 'Digilog', 'Helvetica', 'Particles', 'Set', 'Snake', 'Vinyl'
     return {
         props: {
             pages: labPages.map((page) => ({ title: page, url: slugify(page) }))
